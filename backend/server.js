@@ -6,6 +6,7 @@ const http = require("http");
 const socketio = require("socket.io");
 const userRouter = require("./routes/userRoutes");
 const socketIo = require("./socket");
+const groupRouter = require("./routes/groupRoutes");
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ mongoose
 socketIo(io);
 //out routes
 app.use("/api/users", userRouter);
+app.use("/api/groups", groupRouter);
 
 //start the server
 const PORT = process.env.PORT || 5000;
